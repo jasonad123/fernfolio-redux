@@ -1,7 +1,7 @@
 {
-  "name": "fernfolio-11ty-template",
+  "name": "fernfolio-redux",
   "version": "1.0.0",
-  "description": "The super simple portfolio template built with Eleventy and Netlify CMS",
+  "description": "A portfolio template built with Eleventy and Decap CMS, remixed from Tyler Roderick's Fernfolio",
   "scripts": {
     "start": "cross-env npm-run-all build:sass --parallel watch:*",
     "build": "cross-env npm-run-all build:sass build:scripts build:eleventy",
@@ -16,18 +16,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tylerMRoderick/fernfolio-11ty-template"
+    "url": "https://github.com/jasonad123/fernfolio-redux"
   },
   "author": {
-    "name": "Tyler M. Roderick",
-    "email": "troderick@protonmail.com",
-    "url": "https://www.tylerroderick.com/"
+    "name": "Jason Adle",
+    "email": "developer@staticeagles.com",
+    "url": "https://www.jasonadle.com/"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tylerMRoderick/fernfolio-11ty-template/issues"
   },
-  "homepage": "https://github.com/tylerMRoderick/fernfolio-11ty-template",
+  "homepage": "https://github.com/jasonad123/fernfolio-redux",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-img": "^5.0.0",
