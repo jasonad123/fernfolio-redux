@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/64ccb239-30ed-454d-bb3f-d377dd7f08f5/deploy-status)](https://app.netlify.com/sites/fernfolio-redux/deploys)
 
+![Cloudflare Pages Status](https://img.shields.io/endpoint?url=https://cloudflare-pages-badges.jasonadle2.workers.dev/?projectName=<fernfolio-redux>)
+
 # Fernfolio Redux — An 11ty Portfolio Template
 Launch your personal portfolio in minutes and modify content without opening a code editor!
 
@@ -11,7 +13,7 @@ Launch your personal portfolio in minutes and modify content without opening a c
 An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of creating a beautiful portfolio and blog. Tightly integrated with [Decap CMS](https://decapcms.org/) for flexible, Git-powered content management.
 
 ## 🆕 Why call it a redux?
-This started because I really liked the work that the originator of this project had done, but there were some changes to the code base that came through as I was working on my own site and I figured I'd
+This started because I really liked the work that the originator of this project had done, but there were some changes to the code base that came through as I was working on my own site and I figured this would be an awesome time to learn how to do this kind of stuff. So now we have the Fernfolio Redux!
 
 ## What's changed?
 * Migrated from Netlify CMS to Decap CMS (same product, different name)
