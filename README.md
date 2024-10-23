@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5702ba89-7242-490e-b04d-e4a691faced5/deploy-status)](https://app.netlify.com/sites/fernfolio/deploys)
 
-# Fernfolio — An 11ty Portfolio Template
+# Fernfolio Redux — An 11ty Portfolio Template
 Launch your personal portfolio in minutes and modify content without opening a code editor!
 
 <img width="1280" alt="fernfolio screenshot" src="https://raw.githubusercontent.com/TylerMRoderick/fernfolio-11ty-template/master/fernfolio-preview.jpeg">
@@ -8,10 +8,21 @@ Launch your personal portfolio in minutes and modify content without opening a c
 ### <pre>🖥  [Demo](https://fernfolio.netlify.app/)</pre>
 
 ## 🤔 What is this?
-An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of creating a beautiful portfolio and blog. Tightly integrated with [Netlify CMS](https://www.netlifycms.org/) for flexible, Git-powered content management.
+An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of creating a beautiful portfolio and blog. Tightly integrated with [Decap CMS](https://decapcms.org/) for flexible, Git-powered content management.
+
+## 🆕 Why call it a redux?
+This started because I really liked the work that the originator of this project had done, but there were some changes to the code base that came through as I was working on my own site and I figured I'd
+
+## What's changed?
+* Migrated from Netlify CMS to Decap CMS (same product, different name)
+* Migrated from Eleventy v2 to v3
+* Responsive images are now handled by [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and its new `eleventyImageTransformPlugin`
+* Addressed a vulnerability in `htmlminifer`
+* TODO migrate from the now-deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
+
 
 ## ✨ Features
-* Deep integration with [Netlify CMS](https://www.netlifycms.org/). Modify content without opening a code editor.
+* Deep integration with [Decap CMS](https://decapcms.org/). Modify content without opening a code editor.
 * Customizable blog and project pages with tag support
 * Working contact form powered by [Netlify Forms](https://www.netlify.com/products/forms/)
 * Fast page speeds and high lighthouse scores
@@ -20,11 +31,10 @@ An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of cr
 * SCSS support with sane base styles
 * Continuous Deployment workflow via [Netlify](https://www.netlify.com/)
 * Responsive images generated at build time
-* Minified HTML with [HTMLMinifier](https://github.com/kangax/html-minifier)
+* Minified HTML with [HTMLMinifier](https://github.com/terser/html-minifier-terser)
 * Minified CSS with [cssnano](https://github.com/cssnano/cssnano)
 * [Turbolinks](https://github.com/turbolinks/turbolinks) integration to enable instant navigation without page refresh
 * Useful Nunjuck filters built in
-
 
 ## 🚀 Quick Start
 ### 1. Click the "Deploy to Netlify" button below
@@ -87,4 +97,5 @@ see a text link to "Generate access token in GitHub".
 This is a fun side project for me and I always welcome questions/comments. If you run into any problems or have a feature request, please open an issue. I try to read every one and will gladly assist you whenever possible.
 
 ## Credit
+*All the credit for originally developing fernfolio goes to [Tyler Roderick](https://github.com/TylerMRoderick) - thank you for developing an awesome 11ty starter!*
 *This project was originally forked from [eleventy-netlify-boilerplate](https://github.com/danurbanowicz/eleventy-netlify-boilerplate), but completely revamped to match the needs of a modern porfolio.*
