@@ -14,13 +14,7 @@ section: home
       {% endif %}
     </div>
     <div class="hero__col">
-      {% image
-        home.image,
-        home.image_alt,
-        "(min-width: 1024px) 50vw, 100vw",
-        "hero__image shadow",
-        "eager"
-      %}
+    <img src="{{ home.image }}" alt="{{ home.image_alt }}" class="hero__image shadow" loading="eager" sizes="(min-width: 1024px) 50vw, 100vw">
     </div>
   </div>
 

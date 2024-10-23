@@ -28,4 +28,4 @@ If you get stuck or just have a question, feel free to create a [Github issue](h
 
 Thanks for checking out Fernfolio 👋 - [Tyler M. Roderick](https://www.tylerroderick.com/)
 
-![Fern in Hand](/src/assets/img/fern-forest.jpeg "Fern in Hand")
+![Fern in Hand](/assets/img/fern-forest.jpeg "Fern in Hand")

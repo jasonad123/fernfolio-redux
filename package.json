@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A portfolio template built with Eleventy and Decap CMS, remixed from Tyler Roderick's Fernfolio",
   "scripts": {
+    "prebuild": "rimraf _site",
     "start": "cross-env npm-run-all build:sass --parallel watch:*",
     "build": "cross-env npm-run-all build:sass build:scripts build:eleventy",
     "watch:scripts": "esbuild \"./src/assets/js/main.js\" --target=es6 --bundle --outfile=\"./_site/assets/js/main.bundle.js\"",
