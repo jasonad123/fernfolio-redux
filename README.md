@@ -1,11 +1,11 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5702ba89-7242-490e-b04d-e4a691faced5/deploy-status)](https://app.netlify.com/sites/fernfolio/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64ccb239-30ed-454d-bb3f-d377dd7f08f5/deploy-status)](https://app.netlify.com/sites/fernfolio-redux/deploys)
 
 # Fernfolio Redux — An 11ty Portfolio Template
 Launch your personal portfolio in minutes and modify content without opening a code editor!
 
 <img width="1280" alt="fernfolio screenshot" src="https://raw.githubusercontent.com/TylerMRoderick/fernfolio-11ty-template/master/fernfolio-preview.jpeg">
 
-### <pre>🖥  [Demo](https://fernfolio.netlify.app/)</pre>
+### <pre>🖥  [Demo](https://fernfolio-redux.netlify.app/)</pre>
 
 ## 🤔 What is this?
 An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of creating a beautiful portfolio and blog. Tightly integrated with [Decap CMS](https://decapcms.org/) for flexible, Git-powered content management.
@@ -39,7 +39,7 @@ This started because I really liked the work that the originator of this project
 ## 🚀 Quick Start
 ### 1. Click the "Deploy to Netlify" button below
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/TylerMRoderick/fernfolio-11ty-template&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jasonad123/fernfolio-redux&stack=cms)
 
 This will clone this repo to your github account and will deploy a copy of the demo website to your Netlify
 account (you can create an account during this process if you don't have one).
