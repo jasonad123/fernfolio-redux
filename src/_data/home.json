@@ -1,6 +1,6 @@
 {
-  "title": "Jason Adle",
-  "image": "https://img.staticeagles.com/misc/avatartion-2.png",
-  "image_alt": "A Notion-styled avatar of me. Made with Drawkit.",
-  "body": "I'm a transportation planner, urbanist, technology enthusiast, sysadmin-in-training, and developer-in-progress. \n\nMy motto is **innovation in motion** - ***always moving forward.***  \n\nHave a look around and feel free to [reach out](https://info.jasonadle.com) if you've got any questions or just want to learn more about me!"
+  "title": "Fernfolio",
+  "image": "/assets/img/fern-in-hand.jpeg",
+  "image_alt": "Fern in hand",
+  "body": "The super simple portfolio template built with [Eleventy](https://www.11ty.dev/) and [Netlify CMS](https://www.netlifycms.org/)."
 }

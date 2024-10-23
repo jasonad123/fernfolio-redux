@@ -1,10 +1,6 @@
 backend:
-  name: github
-  repo: jasonad123/fern-page
-  branch: main # Branch to update (optional; defaults to master)
-  site_domain: https://fern.jasonadle.com
-  base_url: https://fern.jasonadle.com
-  auth_endpoint: /api/auth
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
