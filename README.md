@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/64ccb239-30ed-454d-bb3f-d377dd7f08f5/deploy-status)](https://app.netlify.com/sites/fernfolio-redux/deploys)
 
-![Cloudflare Pages Status](https://img.shields.io/endpoint?url=https://cloudflare-pages-badges.jasonadle2.workers.dev/?projectName=<fernfolio-redux>)
+![Cloudflare Pages Status](https://img.shields.io/endpoint?url=https://cloudflare-pages-badges.jasonadle2.workers.dev/?projectName=fernfolio-redux)
 
 # Fernfolio Redux — An 11ty Portfolio Template
 Launch your personal portfolio in minutes and modify content without opening a code editor!
