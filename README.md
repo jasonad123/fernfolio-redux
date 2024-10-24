@@ -7,7 +7,9 @@ Launch your personal portfolio in minutes and modify content without opening a c
 
 <img width="1280" alt="fernfolio screenshot" src="https://raw.githubusercontent.com/TylerMRoderick/fernfolio-11ty-template/master/fernfolio-preview.jpeg">
 
-### <pre>🖥  [Demo](https://fernfolio-redux.netlify.app/)</pre>
+### <pre>🖥  [Demo in Netlify](https://fernfolio-redux.netlify.app/)</pre>
+
+### <pre>🖥  [Demo in Cloudflare Pages](https://fernfolio-redux.pages.dev)</pre> 
 
 ## 🤔 What is this?
 An [Eleventy](https://www.11ty.io/) theme designed to simplify the process of creating a beautiful portfolio and blog. Tightly integrated with [Decap CMS](https://decapcms.org/) for flexible, Git-powered content management.
