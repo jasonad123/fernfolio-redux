@@ -22,6 +22,7 @@ This started because I really liked the work that the originator of this project
 * Migrated from Eleventy v2 to v3
 * Responsive images are now handled by [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and its new `eleventyImageTransformPlugin`
 * Addressed a vulnerability in `htmlminifer`
+* Added deploy information for Cloudflare Pages via `wrangler.toml`
 * TODO migrate from the now-deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
 
 
