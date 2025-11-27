@@ -49,7 +49,7 @@
     "postcss-scss": "^4.0.9",
     "rimraf": "^6.0.1",
     "sass": "^1.80.4",
-    "turbolinks": "^5.2.0"
+    "@hotwired/turbo": "^8.0.12"
   },
   "dependencies": {}
 }

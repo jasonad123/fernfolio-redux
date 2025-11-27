@@ -1,9 +1,8 @@
-const Turbolinks = require('turbolinks');
+const Turbo = require('@hotwired/turbo');
 const drawer = require('./drawer');
 const darkMode = require('./dark-mode');
 
-// Initialize Turbolinks
-Turbolinks.start();
+// Turbo automatically starts on import
 
 // Initialize mobile nav drawer
 drawer();

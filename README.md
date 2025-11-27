@@ -23,7 +23,8 @@ This started because I really liked the work that the originator of this project
 * Responsive images are now handled by [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and its new `eleventyImageTransformPlugin`
 * Addressed a vulnerability in `htmlminifer`
 * Added deploy information for Cloudflare Pages via `wrangler.toml`
-* TODO migrate from the now-deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
+* Migrated from the deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
+* Migrated from npm to pnpm for package management
 
 
 ## ✨ Features
@@ -38,7 +39,7 @@ This started because I really liked the work that the originator of this project
 * Responsive images generated at build time
 * Minified HTML with [HTMLMinifier](https://github.com/terser/html-minifier-terser)
 * Minified CSS with [cssnano](https://github.com/cssnano/cssnano)
-* [Turbolinks](https://github.com/turbolinks/turbolinks) integration to enable instant navigation without page refresh
+* [Turbo](https://github.com/hotwired/turbo) integration to enable instant navigation without page refresh
 * Useful Nunjuck filters built in
 
 ## 🚀 Quick Start
