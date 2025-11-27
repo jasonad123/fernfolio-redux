@@ -65,17 +65,17 @@ If you want to test things locally before deploying, follow the steps below:
 - open your terminal
 - Clone the repo locally `git clone https://github.com/jasonad123/fernfolio-redux.git`
 - Navigate to root folder: `cd fernfolio-redux/`
-- Install the goods: `npm install`
-- Run it: `npm start`
+- Install the goods: `pnpm install`
+- Run it: `pnpm start`
 - You should now be able to see everything running on localhost:8080
 
 ## 💻 Development Scripts
 
-**`npm start`**
+**`pnpm start`**
 
 > Run 11ty with hot reload at localhost:8080
 
-**`npm run build`**
+**`pnpm run build`**
 
 > Generate minified production build
 
