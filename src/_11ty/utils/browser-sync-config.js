@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// Custom config required to get Turbolinks to work in development mode
+// Custom config required to get Turbo to work in development mode
 module.exports = {
   // show 404s in dev
   callbacks: {
@@ -18,7 +18,7 @@ module.exports = {
       });
     }
   },
-  // scripts in body conflict with Turbolinks
+  // scripts in body conflict with Turbo
   snippetOptions: {
     rule: {
       match: /<\/head>/i,

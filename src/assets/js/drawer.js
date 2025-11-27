@@ -142,7 +142,7 @@ const drawer = () => {
   // Inits & Event Listeners
   document.addEventListener('click', clickHandler, false);
   document.addEventListener('keydown', keydownHandler, false);
-  document.addEventListener('turbolinks:click', removeOverlay, false);
+  document.addEventListener('turbo:click', removeOverlay, false);
 };
 
 module.exports = drawer;
