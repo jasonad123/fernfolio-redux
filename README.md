@@ -22,7 +22,7 @@ This started because I really liked the work that the originator of this project
 * Migrated from Eleventy v2 to v3
 * Responsive images are now handled by [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and its new `eleventyImageTransformPlugin`
 * Addressed a vulnerability in `htmlminifer`
-* Added deploy information for Cloudflare Pages via `wrangler.toml`
+* Added a Cloudflare Pages demo deployment (configured via the Cloudflare dashboard, not a repo config file)
 * Migrated from the deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
 * Migrated from npm to pnpm for package management
 
@@ -40,7 +40,7 @@ This started because I really liked the work that the originator of this project
 * Minified HTML with [HTMLMinifier](https://github.com/terser/html-minifier-terser)
 * Minified CSS with [cssnano](https://github.com/cssnano/cssnano)
 * [Turbo](https://github.com/hotwired/turbo) integration to enable instant navigation without page refresh
-* Useful Nunjuck filters built in
+* Useful template filters built in
 
 ## 🚀 Quick Start
 ### 1. Click the "Deploy to Netlify" button below

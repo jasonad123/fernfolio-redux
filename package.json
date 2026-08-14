@@ -6,7 +6,7 @@
     "prebuild": "rimraf _site",
     "start": "cross-env npm-run-all build:sass --parallel watch:*",
     "build": "cross-env npm-run-all build:sass build:scripts build:eleventy",
-    "watch:scripts": "esbuild \"./src/assets/js/main.js\" --target=es6 --bundle --outfile=\"./_site/assets/js/main.bundle.js\"",
+    "watch:scripts": "esbuild \"./src/assets/js/main.js\" --target=es6 --bundle --watch --outfile=\"./_site/assets/js/main.bundle.js\"",
     "build:scripts": "esbuild \"./src/assets/js/main.js\" --target=es6 --bundle --minify --outfile=\"./_site/assets/js/main.bundle.js\"",
     "watch:sass": "sass --no-source-map --watch src/assets/scss:_site/assets/css/",
     "build:sass": "sass --no-source-map src/assets/scss/main.scss _site/assets/css/main.css",
@@ -29,6 +29,9 @@
     "url": "https://github.com/jasonad123/fernfolio-redux/issues"
   },
   "homepage": "https://github.com/jasonad123/fernfolio-redux",
+  "engines": {
+    "node": ">=24"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^5.0.0",
