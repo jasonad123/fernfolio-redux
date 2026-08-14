@@ -90,6 +90,14 @@ To enable switching from light to dark mode, `global.json` has some settings:
 - `default_theme`: set to `dark` or another value (which always means `light`)
 - `use_system_theme`: set to `true` if you want the system preference to be enforced
 
+## 🔍 SEO
+
+Every page includes basic meta tags, Open Graph, and Twitter Card tags, plus a generated
+`/sitemap.xml` and `/robots.txt`. To get absolute URLs in the sitemap, `og:url`, and the
+`robots.txt` sitemap reference, set `url` in `src/_data/metadata.json` to your site's
+deployed URL (e.g. `"https://example.com"`) - it's left blank by default since this is a
+template and there's no one correct value.
+
 ## 🎩 Common issues
 
 If you change the repo that was created at deploy time from public to private, you'll need to regenerate your token,
