@@ -100,8 +100,8 @@ see a text link to "Generate access token in GitHub".
 
 ## 🗣 Bug reports, feature requests, etc.
 
-This is a fun side project for me and I always welcome questions/comments. If you run into any problems or have a feature request, please open an issue. I try to read every one and will gladly assist you whenever possible.
+This is a side project for me and I always welcome questions/comments. If you run into any problems or have a feature request, please open an issue. I try to read every one and will gladly assist you whenever possible.
 
 ## Credit
-*All the credit for originally developing fernfolio goes to [Tyler Roderick](https://github.com/TylerMRoderick) - thank you for developing an awesome 11ty starter!*
-*This project was originally forked from [eleventy-netlify-boilerplate](https://github.com/danurbanowicz/eleventy-netlify-boilerplate), but completely revamped to match the needs of a modern porfolio.*
+*All the credit for originally developing `fernfolio` goes to [Tyler Roderick](https://github.com/TylerMRoderick) - thank you for developing an awesome 11ty starter!*
+*This project was originally forked from [fernfolio-11ty-template](https://github.com/TylerMRoderick/fernfolio-11ty-template) which itself was forked from [eleventy-netlify-boilerplate](https://github.com/danurbanowicz/eleventy-netlify-boilerplate), but completely revamped to match the needs of a modern porfolio.*
