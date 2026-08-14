@@ -1,27 +1,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or renderData.metaDescription or summary or metadata.description }}">
+  <title>{{ renderData.title | default: title | default: metadata.title }}</title>
+  <meta name="description" content="{{ metaDescription | default: renderData.metaDescription | default: summary | default: metadata.description }}">
   <link rel="dns-prefetch" href="https://identity.netlify.com">
 
-  {# Canonical URL #}
+  {% comment %} Canonical URL {% endcomment %}
   {% if canonical %}
     <link rel="canonical" href="{{ canonical }}" />
   {% endif %}
 
 
-  {# Third-party scripts #}
+  {% comment %} Third-party scripts {% endcomment %}
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  {# Fonts #}
+  {% comment %} Fonts {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  {# CSS #}
+  {% comment %} CSS {% endcomment %}
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  {# Javascript #}
+  {% comment %} Javascript {% endcomment %}
   <script>
     // Initialize theme
     // Must run before page rendering to prevent flash

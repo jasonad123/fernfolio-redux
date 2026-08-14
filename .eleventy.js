@@ -42,11 +42,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('machineDate', machineDateFilter);
   eleventyConfig.addFilter('svg', svgFilter);
 
-  // Shortcodes
- // eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
-
   // Libraries
   eleventyConfig.setLibrary('md', markdownLibrary);
+
+  // Match Nunjucks' defaults: plain-JS truthiness (Liquid otherwise treats "" and 0 as
+  // truthy) and HTML-autoescaped output (Liquid otherwise doesn't escape {{ }} at all) —
+  // use `| raw` on the handful of outputs that intentionally contain trusted HTML.
+  eleventyConfig.setLiquidOptions({ jsTruthy: true, outputEscape: 'escape' });
 
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
@@ -66,10 +68,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig(browserSyncConfig);
 
   return {
-    templateFormats: ['md', 'njk', 'html'],
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
+    templateFormats: ['md', 'liquid', 'html'],
+    markdownTemplateEngine: 'liquid',
+    htmlTemplateEngine: 'liquid',
     passthroughFileCopy: true,
     dir: {
       input: 'src',

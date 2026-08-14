@@ -1,5 +1,5 @@
 ---
-layout: blog.njk
+layout: blog.liquid
 title: Articles
 date: 2017-01-01
 pagination:

@@ -32,7 +32,7 @@ This started because I really liked the work that the originator of this project
 * Customizable blog and project pages with tag support
 * Working contact form powered by [Netlify Forms](https://www.netlify.com/products/forms/)
 * Fast page speeds and high lighthouse scores
-* Uses Markdown for content files and Nunjucks for layouts
+* Uses Markdown for content files and Liquid for layouts
 * 100% Javascript framework free
 * SCSS support with sane base styles
 * Continuous Deployment workflow via [Netlify](https://www.netlify.com/)

@@ -1,5 +1,5 @@
 ---
-layout: projects.njk
+layout: projects.liquid
 title: Projects
 date: 2021-01-01
 permalink: /projects/index.html

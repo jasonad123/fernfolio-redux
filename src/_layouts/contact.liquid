@@ -1,11 +1,11 @@
 ---
-layout: base.njk
+layout: base.liquid
 section: contact
 ---
 <div class="page-container">
   <h1>{{ title }}</h1>
   <hr/>
-  {{ content | safe }}
+  {{ content | raw }}
 
-  {% include "partials/form.njk" %}
+  {% include "partials/form.liquid" %}
 </div>

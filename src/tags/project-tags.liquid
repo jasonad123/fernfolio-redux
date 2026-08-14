@@ -4,23 +4,23 @@ pagination:
   size: 1
   alias: tag
 permalink: /project-tags/{{ tag }}/
-layout: base.njk
+layout: base.liquid
 renderData:
   title: "Projects tagged “{{ tag }}”"
   metaDescription: "All projects tagged with “{{ tag }}”"
 ---
 <div class="page-container">
-  {# Header #}
+  {% comment %} Header {% endcomment %}
   <div class="tag-list tag-list--no-wrap">
     <h4 class="tag-list__title">Projects Tagged: "{{ tag | capitalize }}"</h4>
     <a class="btn btn--sm btn--danger" href="/projects">Remove Tag</a>
   </div>
 
-  {# Projects #}
-  {% from "macros/projectlist.njk" import projectlist %}
-  {{ projectlist(projects = collections[tag] | reverse) }}
+  {% comment %} Projects {% endcomment %}
+  {% assign taggedProjects = collections[tag] | reverse %}
+  {% render "partials/projectlist.liquid", projects: taggedProjects %}
 
-  {# Footer #}
+  {% comment %} Footer {% endcomment %}
   <nav>
     <a href="{{ '/projects/' | url }}">← View All Projects</a>
   </nav>
