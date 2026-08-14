@@ -1,3 +1,5 @@
+@use '../global/variables' as vars;
+
 /* Article card */
 .article-card {
   margin-top: 20px;
@@ -5,21 +7,13 @@
   border-radius: var(--border-radius);
 
   &:hover {
-    color: var(--color-text);
-    background-color: var(--color-bg-hover);
-
-    :root[data-theme="dark"] & {
-      background-color: var(--color-bg-secondary-dark);
-    }
+    color: var(--color-primary);
+    background-color: var(--color-row-hover);
   }
 
   &--tags {
     border-bottom: 2px solid var(--color-border);
     border-radius: 0;
-
-    :root[data-theme="dark"] & {
-      border-bottom: 2px solid var(--color-border-dark);
-    }
 
     &:last-child {
       border-bottom: none;
@@ -27,24 +21,20 @@
 
     &:hover {
       background-color: transparent;
-
-      :root[data-theme="dark"] & {
-        background-color: transparent;
-      }
     }
   }
 }
 
 .article-card__link {
-  color: var(--color-text);
+  color: var(--color-link-quiet);
 
   &:hover {
-    color: var(--color-text);
+    color: var(--color-link-quiet);
   }
 
   .article-card--tags & {
     &:hover {
-      color: var(--color-secondary);
+      color: var(--color-link);
     }
   }
 }
@@ -55,11 +45,7 @@
 
 .article-card__summary {
   margin-bottom: 0;
-  color: var(--color-text-gray);
-
-  :root[data-theme="dark"] & {
-    color: var(--color-text-dark);
-  }
+  color: var(--color-text-muted);
 }
 
 /* Tags */
@@ -73,9 +59,9 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 40px 0 30px;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border-fixed);
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
@@ -88,7 +74,7 @@
   margin-bottom: 20px;
   line-height: 1.4em;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     margin-bottom: 0;
   }
 }
@@ -96,9 +82,9 @@
 .tag {
   margin: 10px 10px 0 0;
   padding: 6px 8px;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-surface-muted);
   border-radius: var(--border-radius-sm);
-  color: var(--color-secondary);
+  color: var(--color-link);
   white-space: nowrap;
   font-size: 13px;
   font-weight: 500;
@@ -109,11 +95,6 @@
 
   &:first-child {
     margin-left: 0;
-  }
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
-    color: var(--color-link-dark);
   }
 }
 
@@ -128,9 +109,9 @@
 }
 
 .pagination__link {
-  color: var(--color-text);
+  color: var(--color-link-quiet);
 
   &[aria-current] {
-    color: var(--color-secondary);
+    color: var(--color-link);
   }
 }
