@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: base.liquid
 section: post
 ---
 <div class="page-container">
@@ -10,13 +10,13 @@ section: post
     </p>
     <hr/>
 
-    {{ content | safe }}
+    {{ content | raw }}
 
     {% if tags %}
       <p class="tag-list">
       {% for tag in tags %}
         {%- if tag != "post" -%}
-          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+          {% capture tagUrl %}/tags/{{ tag }}/{% endcapture %}
           <a class="tag" href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
         {%- endif -%}
       {% endfor %}

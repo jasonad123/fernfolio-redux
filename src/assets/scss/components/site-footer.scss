@@ -1,12 +1,14 @@
+@use '../global/variables' as vars;
+
 .site-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-fixed);
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     padding: 15px 30px;
   }
 }

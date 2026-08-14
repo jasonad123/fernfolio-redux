@@ -1,5 +1,5 @@
 {
-  "layout": "post.njk",
-  "permalink": "posts/{{ urlPath or title | slug }}/index.html",
+  "layout": "post.liquid",
+  "permalink": "posts/{% if urlPath %}{{ urlPath }}{% else %}{{ title | slug }}{% endif %}/index.html",
   "tags": ["post"]
 }

@@ -1,9 +1,11 @@
+@use '../global/variables' as vars;
+
 .home-page {
   max-width: var(--site-width);
   margin: 0 auto 60px;
   padding: 0 20px 20px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     padding: 20px 40px;
   }
 }
@@ -11,7 +13,7 @@
 .home-page__bg-square {
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     display: block;
     position: absolute;
     left: auto;
@@ -24,12 +26,8 @@
     max-width: 35%;
     min-width: 300px;
     border-radius: var(--border-radius);
-    background-color: var(--color-bg-accent);
+    background-color: var(--color-accent-bg);
     z-index: -1;
-
-    :root[data-theme="dark"] & {
-      background-color: var(--color-bg-accent-dark);
-    }
   }
 }
 
@@ -41,7 +39,7 @@
   max-width: 1100px;
   margin: 0 auto;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     grid-template-columns: 3fr 2fr;
     row-gap: 20px;
     margin: 50px auto;
@@ -59,13 +57,13 @@
   border-radius: var(--border-radius);
   transition: filter 0.4s ease-out;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     margin-bottom: 0;
   }
 }
 
 .hero__title {
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     margin-top: 0;
     font-size: 3em;
   }
@@ -88,11 +86,7 @@
   gap: 20px;
   margin-bottom: 20px;
   padding-top: 20px;
-  border-top: 2px solid (var(--color-border));
-
-  :root[data-theme="dark"] & {
-    border-top: 1px solid (var(--color-border-dark));
-  }
+  border-top: 2px solid var(--color-border);
 }
 
 .list-header__title {

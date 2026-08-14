@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: base.liquid
 section: project
 ---
 <div class="page-container">
@@ -9,7 +9,7 @@ section: project
     {% endif %}
     {{title}}</h1>
   <hr/>
-  {{ content | safe }}
+  {{ content | raw }}
   <nav>
     <a href="{{ '/projects/' | url }}">← View All Projects</a>
   </nav>

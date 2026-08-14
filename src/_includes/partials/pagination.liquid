@@ -1,4 +1,4 @@
-{% if pagination.pages.length > 1 %}
+{% if pagination.pages.size > 1 %}
   <nav class="pagination" aria-label="pagination">
     <ol class="pagination__list">
     {% if pagination.href.previous %}
@@ -7,14 +7,13 @@
       </li>
     {% endif %}
     {%- for pageEntry in pagination.pages %}
-      {% set is_active = (page.url == pagination.hrefs[ loop.index0 ]) %}
       <li class="pagination__item">
         <a
           class="pagination__link"
-          href="{{ pagination.hrefs[ loop.index0 ] }}"
-          {% if is_active %}aria-current="page"{% endif %}
+          href="{{ pagination.hrefs[ forloop.index0 ] }}"
+          {% if page.url == pagination.hrefs[ forloop.index0 ] %}aria-current="page"{% endif %}
         >
-          {{ loop.index }}
+          {{ forloop.index }}
         </a>
       </li>
     {%- endfor %}

@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: base.liquid
 section: page
 ---
 <div class="page-container">
@@ -8,5 +8,5 @@ section: page
     <p>{{ subtitle }}</p>
   {% endif %}
   <hr/>
-  {{ content | safe }}
+  {{ content | raw }}
 </div>

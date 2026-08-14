@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 .page-container {
   max-width: var(--site-width);
   margin-right: auto;
@@ -17,7 +19,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(130deg, #5183f5, #af002d 41.07%, #c79191 76.05%);
+  background: var(--gradient-text);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -27,15 +29,15 @@
   padding: 10px 15px;
   border: none;
   border-radius: var(--border-radius-sm);
-  background-color: var(--color-secondary);
-  color: var(--color-text-alt);
+  background-color: var(--color-link);
+  color: var(--color-button-text);
   font-size: 14px;
   white-space: nowrap;
 
   &:hover, &:focus {
     border: none;
     filter: brightness(90%);
-    color: var(--color-text-alt);
+    color: var(--color-button-text);
   }
 }
 
@@ -44,38 +46,21 @@
 }
 
 .btn--outline {
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg);
+  border: 1px solid var(--color-outline-border);
+  background-color: var(--color-surface);
   color: var(--color-text);
 
-  :root[data-theme="dark"] & {
-    border-color: var(--color-bg-secondary-dark);
-    background-color: var(--color-bg-secondary-dark);
-    color: var(--color-text-dark);
-  }
-
   &:hover, &:focus {
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--color-outline-border-hover);
     filter: none;
-    background-color: var(--color-bg);
-    color: var(--color-secondary);
-
-    :root[data-theme="dark"] & {
-      border: 1px solid var(--color-bg-secondary-dark);
-      background-color: var(--color-bg-wrapper-bg-dark);
-      color: var(--color-title-dark);
-    }
+    background-color: var(--color-surface-elevated);
+    color: var(--color-nav-accent);
   }
 }
 
 .btn--danger {
   background-color: var(--color-danger);
   color: var(--color-text-alt);
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-danger);
-    color: var(--color-text-alt);
-  }
 }
 
 .btn--danger:hover,
@@ -84,10 +69,6 @@
   background-color: var(--color-danger);
   color: var(--color-text-alt);
   filter: brightness(90%);
-
-  :root[data-theme="dark"] & {
-    color: var(--color-text-alt);
-  }
 }
 
 .header-anchor {
@@ -96,7 +77,7 @@
   padding-right: 0.23em;
   margin-top: 0.125em;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     margin-left: -0.87em;
     opacity: 0;
   }

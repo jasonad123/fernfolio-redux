@@ -1,0 +1,19 @@
+---
+layout: base.liquid
+section: projects
+---
+<div class="page-container">
+  <h1>{{title}}</h1>
+
+  {% if subtitle %}
+    <p>{{ subtitle }}</p>
+  {% endif %}
+
+  <hr/>
+
+  {{ content | raw }}
+
+  {% comment %} Projects {% endcomment %}
+  {% assign allProjects = collections.project | reverse %}
+  {% render "partials/projectlist.liquid", projects: allProjects %}
+</div>

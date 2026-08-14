@@ -1,22 +1,42 @@
+// Breakpoint (Sass variable, not a CSS custom property, since it needs to be usable
+// inside @media queries — those can't reference var() directly).
+$breakpoint-lg: 1024px;
+
 :root {
-  /* Brand Colors */
-  --color-primary: #222;
-  --color-secondary: #2f5bc2;
-
-  /* Background Colors */
+  /* Theme-aware colors (light values — dark values are redefined once below) */
   --color-bg: #fff;
-  --color-bg-secondary: #f7f7f7;
-  --color-bg-accent: rgb(174, 182, 225);
-  --color-bg-hover: #f3f4f6cc;
-
-  /* Text and Border Colors */
+  --color-surface: #fff;
+  --color-surface-muted: #f7f7f7;
+  --color-surface-elevated: #fff;
+  --color-surface-hover: #f7f7f7;
+  --color-row-hover: #f3f4f6cc;
+  --color-accent-bg: rgb(174, 182, 225);
+  --color-chrome-bg: transparent;
   --color-text: #222;
-  --color-text-alt: #fff;
-  --color-text-gray: #6b7280;
+  --color-heading: #222;
+  --color-text-muted: #6b7280;
+  --color-link: #2f5bc2;
+  --color-link-quiet: #222;
+  --color-nav-accent: #2f5bc2;
+  --color-header-rule: #2f5bc2;
+  --color-tag-bg: #2f5bc2;
+  --color-button-bg: #222;
+  --color-button-text: #fff;
   --color-border: rgb(0 0 0 / 6%);
+  --color-outline-border: rgb(0 0 0 / 6%);
+  --color-outline-border-hover: #2f5bc2;
+  --shadow-drawer: 0 2px 6px #777;
+  --color-code-bg: #2a2a2a;
 
-  /* Status Colors */
+  /* Fixed colors — same value in both themes (some intentionally preserve elements
+     that never had dark-mode treatment, e.g. blockquote/table borders) */
+  --color-primary: #222;
+  --color-text-alt: #fff;
   --color-danger: #e03e3e;
+  --color-border-fixed: rgb(0 0 0 / 6%);
+  --color-surface-muted-fixed: #f7f7f7;
+  --color-overlay: #000;
+  --gradient-text: linear-gradient(130deg, #5183f5, #af002d 41.07%, #c79191 76.05%);
 
   /* Typography */
   --font-family-base: InterVariable, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
@@ -34,20 +54,30 @@
   --border-radius: 12px;
   --border-radius-sm: 5px;
   --shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+}
 
-  // Dark mode colors
-  --color-secondary-dark: rgb(22, 78, 99);
-
-  --color-link-dark: rgb(8, 145, 178);
-
-  --color-bg-dark: #000;
-  --color-bg-wrapper-bg-dark: rgb(24 24 27);
-  --color-bg-secondary-dark: rgb(42 42 43);
-  --color-bg-accent-dark: rgb(8, 51, 68);
-
-  --color-title-dark: rgb(244 244 245);
-  --color-text-dark: rgb(161 161 170);
-
-  --color-border-dark: rgb(39, 39, 42);
-
+:root[data-theme="dark"] {
+  --color-bg: #000;
+  --color-surface: rgb(42 42 43);
+  --color-surface-muted: rgb(42 42 43);
+  --color-surface-elevated: rgb(24 24 27);
+  --color-surface-hover: rgb(24 24 27);
+  --color-row-hover: rgb(42 42 43);
+  --color-accent-bg: rgb(8, 51, 68);
+  --color-chrome-bg: rgb(42 42 43);
+  --color-text: rgb(161 161 170);
+  --color-heading: rgb(244 244 245);
+  --color-text-muted: rgb(161 161 170);
+  --color-link: rgb(8, 145, 178);
+  --color-link-quiet: rgb(8, 145, 178);
+  --color-nav-accent: rgb(244 244 245);
+  --color-header-rule: rgb(8, 51, 68);
+  --color-tag-bg: rgb(22, 78, 99);
+  --color-button-bg: rgb(8, 145, 178);
+  --color-button-text: rgb(244 244 245);
+  --color-border: rgb(39, 39, 42);
+  --color-outline-border: rgb(42 42 43);
+  --color-outline-border-hover: rgb(42 42 43);
+  --shadow-drawer: none;
+  --color-code-bg: rgb(42 42 43);
 }
