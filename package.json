@@ -13,7 +13,8 @@
     "watch:eleventy": "eleventy --serve --incremental",
     "build:eleventy": "eleventy",
     "postbuild": "postcss _site/assets/css/*.css -u autoprefixer cssnano -r --no-map",
-    "clean": "rimraf './_site'"
+    "clean": "rimraf './_site'",
+    "cms:local": "decap-server"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "autoprefixer": "^10.4.20",
     "cross-env": "^10.0.0",
     "cssnano": "^7.0.6",
+    "decap-server": "^3.10.0",
     "esbuild": "^0.25.0",
     "html-minifier-terser": "^7.2.0",
     "luxon": "^3.5.0",

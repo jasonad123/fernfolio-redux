@@ -70,6 +70,20 @@ If you want to test things locally before deploying, follow the steps below:
 - Run it: `pnpm start`
 - You should now be able to see everything running on localhost:8080
 
+### Editing content locally via the CMS
+
+By default `/admin` is configured for `git-gateway`, which only works against a deployed
+Netlify Identity setup - it won't let you log in on localhost. To actually exercise the
+CMS UI locally instead of hand-editing Markdown/JSON files:
+
+1. Uncomment `local_backend: true` in `src/admin/config.yml`.
+2. In a separate terminal, run `pnpm run cms:local` to start the local proxy server
+   (listens on port 8081 by default).
+3. With `pnpm start` also running, visit `localhost:8080/admin` - it'll write changes
+   straight to your working directory instead of a git commit.
+
+Remember to comment `local_backend: true` back out before deploying.
+
 ## 💻 Development Scripts
 
 **`pnpm start`**
