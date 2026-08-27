@@ -1,5 +1,5 @@
 {
-  "layout": "project.njk",
+  "layout": "project.liquid",
   "permalink": "projects/{{ title | slug }}/index.html",
   "tags": ["project"]
 }

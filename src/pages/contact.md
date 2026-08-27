@@ -1,6 +1,6 @@
 ---
 section: contact
-layout: contact.njk
+layout: contact.liquid
 title: Get in touch
 date: 2018-01-01
 permalink: /contact/index.html

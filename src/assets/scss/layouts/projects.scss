@@ -1,10 +1,12 @@
+@use '../global/variables' as vars;
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
   margin: 40px 0;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -15,45 +17,23 @@
   flex-direction: column;
   justify-content: center;
   padding: 15px 25px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-fixed);
   border-radius: var(--border-radius);
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
   box-shadow: var(--shadow);
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
-  }
 }
 
 .project-card__title {
-  color: var(--color-text);
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
-
-    &:hover {
-      color: var(--color-link-dark);
-      border-color: var(--color-link-dark);
-    }
-  }
+  color: var(--color-heading);
 }
 
 .project-card__tag {
-  background-color: var(--color-secondary);
+  background-color: var(--color-tag-bg);
   color: var(--color-text-alt);
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-secondary-dark);
-    color: var(--color-text-alt);
-  }
 
   &:hover {
     color: var(--color-text-alt);
     filter: brightness(90%);
-
-    :root[data-theme="dark"] & {
-      color: var(--color-text-alt);
-    }
   }
 }
 

@@ -1,0 +1,15 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- comment -%} Only real content pages (those rendered through one of the page/post/project/etc. layouts, which each set `section` in their own front matter) - this naturally excludes the generated tag-archive pages and the CMS admin page. {%- endcomment -%}
+{%- for entry in collections.all %}
+  {%- if entry.data.section %}
+  <url>
+    <loc>{{ metadata.url }}{{ entry.url }}</loc>
+  </url>
+  {%- endif %}
+{%- endfor %}
+</urlset>

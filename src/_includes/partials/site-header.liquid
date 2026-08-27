@@ -2,7 +2,7 @@
   <div class="site-header__container">
     <span class="site-header__logo-container">
       <a class="site-header__logo" href="{{ '/' | url }}" aria-label="Logo">
-        {{ global.logo | svg | safe }}
+        {{ global.logo | svg | raw }}
       </a>
     </span>
     <button
@@ -12,10 +12,10 @@
       aria-expanded="false"
     >
       <span class="site-header__mobile-nav-label">Menu</span>
-      {{ global.menu_icon | svg | safe }}
+      {{ global.menu_icon | svg | raw }}
     </button>
     <nav class="site-header__nav">
-      {% set navPages = collections.all | eleventyNavigation %}
+      {% assign navPages = collections.all | eleventyNavigation %}
       <ul class="site-header__items">
         {%- for entry in navPages %}
           <li class="site-header__item">
@@ -31,8 +31,8 @@
 
         {% if global.enable_theme_switch %}
           <li class="site-header__item">
-            <button class="site-header__link site-header__link--theme-switch" data-theme-switch>
-              {{ global.switch_theme_icon | svg | safe }}
+            <button class="site-header__link site-header__link--theme-switch" data-theme-switch aria-label="Toggle color theme">
+              {{ global.switch_theme_icon | svg | raw }}
             </button>
           </li>
         {% endif %}

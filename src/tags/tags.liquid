@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: tag
 permalink: /tags/{{ tag }}/
-layout: base.njk
+layout: base.liquid
 renderData:
   title: "Posts tagged “{{ tag }}”"
   metaDescription: "All posts from the Blog tagged with “{{ tag }}”"
@@ -15,11 +15,8 @@ renderData:
     <a class="btn btn--sm btn--danger" href="/blog">Remove Tag</a>
   </div>
 
-  {% from "macros/articlelist.njk" import articlelist %}
-  {{ articlelist(
-    articles = collections[tag] | reverse,
-    show_tags = true
-  ) }}
+  {% assign taggedArticles = collections[tag] | reverse %}
+  {% render "partials/articlelist.liquid", articles: taggedArticles, show_tags: true %}
 
   <nav>
     <a href="{{ '/blog/' | url }}">← View All Articles</a>

@@ -1,27 +1,40 @@
 <head>
+  {%- assign pageTitle = renderData.title | default: title | default: metadata.title -%}
+  {%- assign pageDescription = metaDescription | default: renderData.metaDescription | default: summary | default: metadata.description -%}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or renderData.metaDescription or summary or metadata.description }}">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
   <link rel="dns-prefetch" href="https://identity.netlify.com">
 
-  {# Canonical URL #}
+  {% comment %} Canonical URL {% endcomment %}
   {% if canonical %}
     <link rel="canonical" href="{{ canonical }}" />
   {% endif %}
 
+  {% comment %} Open Graph / Twitter Card {% endcomment %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  {% if metadata.url %}
+    <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
 
-  {# Third-party scripts #}
+
+  {% comment %} Third-party scripts {% endcomment %}
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  {# Fonts #}
+  {% comment %} Fonts {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  {# CSS #}
+  {% comment %} CSS {% endcomment %}
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  {# Javascript #}
+  {% comment %} Javascript {% endcomment %}
   <script>
     // Initialize theme
     // Must run before page rendering to prevent flash

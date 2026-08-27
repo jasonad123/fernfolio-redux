@@ -1,12 +1,10 @@
+@use '../global/variables' as vars;
+
 .site-header {
   position: fixed;
   width: 100%;
-  border-top: 3px solid var(--color-secondary);
+  border-top: 3px solid var(--color-header-rule);
   z-index: var(--z-header);
-
-  :root[data-theme="dark"] & {
-    border-color: var(--color-bg-accent-dark);
-  }
 }
 
 .site-header__container {
@@ -16,18 +14,14 @@
   justify-content: space-between;
   margin: 3px 12px 0;
   padding: 8px 10px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-fixed);
   border-radius: var(--border-radius);
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
   box-shadow: var(--shadow);
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     max-width: var(--site-width);
     margin: 3px auto 0;
-  }
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
   }
 }
 
@@ -44,26 +38,17 @@
   height: 30px;
   padding: 6px 8px;
   border-radius: var(--border-radius-sm);
-  color: var(--color-text);
+  color: var(--color-heading);
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     width: 40px;
     height: 40px;
   }
 
   &:hover {
     border-bottom: none;
-    background-color: var(--color-bg-secondary);
-    color: var(--color-secondary);
-
-    :root[data-theme="dark"] & {
-      background-color: var(--color-bg-wrapper-bg-dark);
-      color: var(--color-title-dark);
-    }
-  }
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
+    background-color: var(--color-surface-hover);
+    color: var(--color-nav-accent);
   }
 }
 
@@ -72,7 +57,7 @@
   width: 100%;
   margin-top: 15px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     display: block;
     width: auto;
     margin-top: 0;
@@ -83,7 +68,7 @@
   display: flex;
   align-items: center;
   border: none;
-  background: none;
+  background-color: var(--color-chrome-bg);
   color: var(--color-text);
   transition: opacity 0.2s ease;
 
@@ -96,13 +81,8 @@
     height: auto;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     display: none;
-  }
-
-  :root[data-theme="dark"] & {
-    color: var(--color-text-dark);
-    background-color: var(--color-bg-secondary-dark);
   }
 }
 
@@ -125,7 +105,7 @@
   font-weight: 500;
   font-size: 14px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     margin: 0 15px;
     font-size: 15px;
   }
@@ -136,39 +116,21 @@
   align-items: center;
   padding: 6px 8px;
   border-radius: var(--border-radius-sm);
-  color: var(--color-text);
+  color: var(--color-heading);
 
   &:hover {
     border-bottom: none;
-    background-color: var(--color-bg-secondary);
-    color: var(--color-secondary);
-
-    :root[data-theme="dark"] & {
-      background-color: var(--color-bg-wrapper-bg-dark);
-      color: var(--color-title-dark);
-    }
+    background-color: var(--color-surface-hover);
+    color: var(--color-nav-accent);
   }
 
   &[aria-current] {
-    background-color: var(--color-bg-secondary);
-    color: var(--color-secondary);
-
-    :root[data-theme="dark"] & {
-      background-color: var(--color-bg-wrapper-bg-dark);
-      color: var(--color-title-dark);
-    }
-  }
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
+    background-color: var(--color-surface-hover);
+    color: var(--color-nav-accent);
   }
 
   &--theme-switch {
     border: none;
     background: none;
-
-    :root[data-theme="dark"] & {
-      background: none;
-    }
   }
 }

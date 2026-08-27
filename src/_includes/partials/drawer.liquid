@@ -3,11 +3,11 @@
   <div class="drawer__wrapper">
     <div class="drawer__header">
       <button class="drawer__close" data-drawer-close aria-label="Close Drawer">
-        {{ global.close_icon | svg | safe }}
+        {{ global.close_icon | svg | raw }}
       </button>
     </div>
     <div class="drawer__content">
-      {% set navPages = collections.all | eleventyNavigation %}
+      {% assign navPages = collections.all | eleventyNavigation %}
 
       <ul class="drawer__nav">
         <li class="drawer__nav-item">

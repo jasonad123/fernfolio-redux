@@ -1,0 +1,17 @@
+---
+layout: base.liquid
+section: blog
+permalink: /blog/index.html
+---
+<div class="page-container">
+  <h1>{{title}}</h1>
+  {{ content | raw }}
+	<hr/>
+
+  {% comment %} Article List {% endcomment %}
+  {% assign blogPosts = pagination.items | reverse %}
+  {% render "partials/articlelist.liquid", articles: blogPosts, show_tags: true %}
+
+  {% comment %} Pagination {% endcomment %}
+  {% include 'partials/pagination.liquid' %}
+</div>

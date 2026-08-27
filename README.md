@@ -22,7 +22,7 @@ This started because I really liked the work that the originator of this project
 * Migrated from Eleventy v2 to v3
 * Responsive images are now handled by [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and its new `eleventyImageTransformPlugin`
 * Addressed a vulnerability in `htmlminifer`
-* Added deploy information for Cloudflare Pages via `wrangler.toml`
+* Added a Cloudflare Pages demo deployment (configured via the Cloudflare dashboard, not a repo config file)
 * Migrated from the deprecated [Turbolinks](https://github.com/turbolinks/turbolinks) to [Turbo](https://github.com/hotwired/turbo)
 * Migrated from npm to pnpm for package management
 
@@ -32,7 +32,7 @@ This started because I really liked the work that the originator of this project
 * Customizable blog and project pages with tag support
 * Working contact form powered by [Netlify Forms](https://www.netlify.com/products/forms/)
 * Fast page speeds and high lighthouse scores
-* Uses Markdown for content files and Nunjucks for layouts
+* Uses Markdown for content files and Liquid for layouts
 * 100% Javascript framework free
 * SCSS support with sane base styles
 * Continuous Deployment workflow via [Netlify](https://www.netlify.com/)
@@ -40,7 +40,7 @@ This started because I really liked the work that the originator of this project
 * Minified HTML with [HTMLMinifier](https://github.com/terser/html-minifier-terser)
 * Minified CSS with [cssnano](https://github.com/cssnano/cssnano)
 * [Turbo](https://github.com/hotwired/turbo) integration to enable instant navigation without page refresh
-* Useful Nunjuck filters built in
+* Useful template filters built in
 
 ## 🚀 Quick Start
 ### 1. Click the "Deploy to Netlify" button below
@@ -70,6 +70,20 @@ If you want to test things locally before deploying, follow the steps below:
 - Run it: `pnpm start`
 - You should now be able to see everything running on localhost:8080
 
+### Editing content locally via the CMS
+
+By default `/admin` is configured for `git-gateway`, which only works against a deployed
+Netlify Identity setup - it won't let you log in on localhost. To actually exercise the
+CMS UI locally instead of hand-editing Markdown/JSON files:
+
+1. Uncomment `local_backend: true` in `src/admin/config.yml`.
+2. In a separate terminal, run `pnpm run cms:local` to start the local proxy server
+   (listens on port 8081 by default).
+3. With `pnpm start` also running, visit `localhost:8080/admin` - it'll write changes
+   straight to your working directory instead of a git commit.
+
+Remember to comment `local_backend: true` back out before deploying.
+
 ## 💻 Development Scripts
 
 **`pnpm start`**
@@ -89,6 +103,14 @@ To enable switching from light to dark mode, `global.json` has some settings:
 - `enable_theme_switch`: set to `true` if you want your visitors to be able to switch theme
 - `default_theme`: set to `dark` or another value (which always means `light`)
 - `use_system_theme`: set to `true` if you want the system preference to be enforced
+
+## 🔍 SEO
+
+Every page includes basic meta tags, Open Graph, and Twitter Card tags, plus a generated
+`/sitemap.xml` and `/robots.txt`. To get absolute URLs in the sitemap, `og:url`, and the
+`robots.txt` sitemap reference, set `url` in `src/_data/metadata.json` to your site's
+deployed URL (e.g. `"https://example.com"`) - it's left blank by default since this is a
+template and there's no one correct value.
 
 ## 🎩 Common issues
 

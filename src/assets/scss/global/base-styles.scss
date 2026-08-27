@@ -4,6 +4,8 @@
  * Project: https://github.com/oxalorg/sakura/
  */
 
+@use '../global/variables' as vars;
+
 /* Body */
 html {
   scroll-padding-top: 100px;
@@ -20,11 +22,6 @@ body {
   line-height: 1.618;
   color: var(--color-text);
   background-color: var(--color-bg);
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-dark);
-  }
 }
 
 .wrapper-bg-wrapper {
@@ -40,9 +37,9 @@ body {
 
     .wrapper-bg{
       width:calc(var(--site-width) + 100px);
-      background-color: var(--color-bg-wrapper-bg-dark);
-      border-right: 1px solid var(--color-bg-secondary-dark);
-      border-left: 1px solid var(--color-bg-secondary-dark);
+      background-color: var(--color-surface-elevated);
+      border-right: 1px solid var(--color-surface-muted);
+      border-left: 1px solid var(--color-surface-muted);
     }
   }
 }
@@ -50,7 +47,7 @@ body {
 main {
   padding: var(--header-height) 13px 13px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: vars.$breakpoint-lg) {
     padding-top: var(--header-height-lg);
   }
 }
@@ -74,16 +71,13 @@ h6 {
   word-wrap: break-word;
   -ms-word-break: break-all;
   word-break: break-word;
+  color: var(--color-heading);
 
   &:focus, &:hover {
     .header-anchor {
       border-bottom: none;
       opacity: 1;
     }
-  }
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
   }
 }
 
@@ -125,28 +119,15 @@ sup {
 hr {
   border:none;
   border-bottom: 2px solid var(--color-border);
-
-  :root[data-theme="dark"] & {
-    border-color: var(--color-border-dark);
-  }
 }
 
 a {
   text-decoration: none;
-  color: var(--color-secondary);
-
-  :root[data-theme="dark"] & {
-    color: var(--color-link-dark);
-  }
+  color: var(--color-link);
 
   &:hover {
-    color: var(--color-secondary);
-    border-bottom: 2px solid var(--color-secondary);
-
-    :root[data-theme="dark"] & {
-      color: var(--color-link-dark);
-      border-color: var(--color-link-dark);
-    }
+    color: var(--color-link);
+    border-bottom: 2px solid var(--color-link);
   }
 }
 
@@ -169,7 +150,7 @@ blockquote {
   padding-right: 0.8em;
   border-left: 5px solid var(--color-primary);
   margin-bottom: 2.5rem;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-surface-muted-fixed);
 }
 
 blockquote h1,
@@ -195,27 +176,19 @@ video {
 
 /* Pre and Code */
 pre {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-surface-muted);
   display: block;
   padding: 1em;
   overflow-x: auto;
   margin-top: 0;
   margin-bottom: 2.5rem;
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
-  }
 }
 
 code {
   font-size: 0.9em;
   padding: 0 0.5em;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-surface-muted);
   white-space: pre-wrap;
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
-  }
 }
 
 pre > code {
@@ -234,13 +207,13 @@ table {
 td,
 th {
   padding: 0.5em;
-  border-bottom: 1px solid var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-surface-muted-fixed);
 }
 
 /* Buttons, forms and input */
 input,
 textarea {
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-primary);
 }
 
 input:focus,
@@ -264,16 +237,11 @@ input[type='button'] {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  background-color: var(--color-primary);
-  color: var(--color-bg);
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
   border-radius: 1px;
   cursor: pointer;
   box-sizing: border-box;
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
-    background-color: var(--color-link-dark);
-  }
 }
 
 .btn[disabled],
@@ -285,17 +253,23 @@ input[type='button'][disabled] {
   opacity: 0.5;
 }
 
-.btn:focus:enabled,
 .btn:hover:enabled,
-button:focus:enabled,
 button:hover:enabled,
-input[type='submit']:focus:enabled,
 input[type='submit']:hover:enabled,
-input[type='reset']:focus:enabled,
 input[type='reset']:hover:enabled,
-input[type='button']:focus:enabled,
 input[type='button']:hover:enabled {
   outline: 0;
+}
+
+// Keyboard-focused buttons need a visible indicator (WCAG 2.4.7) - :focus-visible
+// keeps mouse/touch clicks outline-free while giving real keyboard focus a clear ring.
+.btn:focus-visible:enabled,
+button:focus-visible:enabled,
+input[type='submit']:focus-visible:enabled,
+input[type='reset']:focus-visible:enabled,
+input[type='button']:focus-visible:enabled {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
 }
 
 textarea,
@@ -306,8 +280,8 @@ input {
 
   /* The 6px vertically centers text on FF, ignored by Webkit */
   margin-bottom: 10px;
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-bg-secondary);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-surface-muted);
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;
@@ -316,12 +290,6 @@ input {
   &:focus {
     border: 1px solid var(--color-primary);
     outline: 0;
-  }
-
-  :root[data-theme="dark"] & {
-    background-color: var(--color-bg-secondary-dark);
-    border: 1px solid var(--color-bg-secondary-dark);
-    color: var(--color-text-dark);
   }
 }
 
@@ -335,8 +303,5 @@ fieldset {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-
-  :root[data-theme="dark"] & {
-    color: var(--color-title-dark);
-  }
+  color: var(--color-heading);
 }
