@@ -31,7 +31,7 @@
 
         {% if global.enable_theme_switch %}
           <li class="site-header__item">
-            <button class="site-header__link site-header__link--theme-switch" data-theme-switch>
+            <button class="site-header__link site-header__link--theme-switch" data-theme-switch aria-label="Toggle color theme">
               {{ global.switch_theme_icon | svg | raw }}
             </button>
           </li>

@@ -22,6 +22,10 @@ $breakpoint-lg: 1024px;
   --color-tag-bg: #2f5bc2;
   --color-button-bg: #222;
   --color-button-text: #fff;
+  // Solid-fill "call to action" buttons (utilites.scss .btn) intentionally use a
+  // different accent than --color-button-bg's black/near-black - separate token so
+  // fixing its dark-mode contrast can't collide with --color-link (used as text).
+  --color-cta-bg: #2f5bc2;
   --color-border: rgb(0 0 0 / 6%);
   --color-outline-border: rgb(0 0 0 / 6%);
   --color-outline-border-hover: #2f5bc2;
@@ -32,7 +36,7 @@ $breakpoint-lg: 1024px;
      that never had dark-mode treatment, e.g. blockquote/table borders) */
   --color-primary: #222;
   --color-text-alt: #fff;
-  --color-danger: #e03e3e;
+  --color-danger: #de2f2f;
   --color-border-fixed: rgb(0 0 0 / 6%);
   --color-surface-muted-fixed: #f7f7f7;
   --color-overlay: #000;
@@ -68,13 +72,14 @@ $breakpoint-lg: 1024px;
   --color-text: rgb(161 161 170);
   --color-heading: rgb(244 244 245);
   --color-text-muted: rgb(161 161 170);
-  --color-link: rgb(8, 145, 178);
-  --color-link-quiet: rgb(8, 145, 178);
+  --color-link: #099fc3;
+  --color-link-quiet: #099fc3;
   --color-nav-accent: rgb(244 244 245);
   --color-header-rule: rgb(8, 51, 68);
   --color-tag-bg: rgb(22, 78, 99);
-  --color-button-bg: rgb(8, 145, 178);
+  --color-button-bg: #077792;
   --color-button-text: rgb(244 244 245);
+  --color-cta-bg: #077792;
   --color-border: rgb(39, 39, 42);
   --color-outline-border: rgb(42 42 43);
   --color-outline-border-hover: rgb(42 42 43);
