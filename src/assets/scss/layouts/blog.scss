@@ -41,6 +41,15 @@
 
 .article-card__title {
   margin: 5px 0;
+
+  // h1-h6 set an explicit color (base-styles.scss), which normally beats inheritance -
+  // but this title needs to visually follow .article-card__link's hover color the way
+  // it did before that explicit color existed. Restore that in light mode specifically:
+  // dark mode's heading color and the link's hover color happen to differ intentionally
+  // (see base-styles.scss / variables.scss), so only light mode should inherit here.
+  :root:not([data-theme="dark"]) .article-card__link:hover & {
+    color: inherit;
+  }
 }
 
 .article-card__summary {
