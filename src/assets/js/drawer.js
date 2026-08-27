@@ -100,6 +100,7 @@ const drawer = () => {
     closestParent.classList.remove(settings.visibleClass);
     removeOverlay();
     toggleAccessibility(childrenTrigger);
+    childrenTrigger.focus();
 
     setTimeout(function () {
       closestParent.classList.remove(settings.activeClass);

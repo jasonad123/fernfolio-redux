@@ -305,3 +305,17 @@ fieldset {
   font-weight: 600;
   color: var(--color-heading);
 }
+
+/* Respect reduced-motion preference: collapse transitions/animations to
+   effectively-instant rather than disabling them outright (keeps end-state
+   styling correct without a state-machine rewrite of each component). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
