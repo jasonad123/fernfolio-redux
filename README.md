@@ -64,12 +64,11 @@ Any changes saved in the CMS will trigger a git commit in your repo. That new co
 
 This template also builds cleanly on Cloudflare Pages. A few things to know:
 
-- **Build command:** `pnpm run build`. **Build output directory:** `_site`. A `wrangler.toml`
-  in the repo root already declares both (via `pages_build_output_dir` and `[build] command`)
-  so Cloudflare's git integration can pick them up automatically - double-check them against
-  your CF Pages project's dashboard settings, since it wasn't possible to confirm from this
-  project whether the git-integration build pipeline always honors the `[build]` block on its
-  own.
+- **Build output directory:** `_site`. A `wrangler.toml` in the repo root already declares
+  this via `pages_build_output_dir`, so Cloudflare's git integration picks it up automatically.
+- **Build command:** `pnpm run build`. Cloudflare Pages' config file does **not** support a
+  build-command setting (it rejects a `[build]` block outright), so this has to be set by hand
+  in the CF Pages dashboard, under your project's Settings → Builds → "Build command".
 - **Node version:** already covered by the repo's `.nvmrc` (`24`), which Cloudflare's build
   image auto-detects.
 - **Contact form:** the form in `src/_includes/partials/form.liquid` uses [Netlify
