@@ -10,13 +10,14 @@
 	{% include "partials/head.liquid" %}
 
   <body>
+		<a class="skip-link visually-hidden" href="#main-content">Skip to content</a>
 		<div class="wrapper-bg-wrapper">
       <div class="wrapper-bg"></div>
     </div>
 
 		{% include "partials/site-header.liquid" %}
 		{% include "partials/drawer.liquid" %}
-		<main>
+		<main id="main-content" tabindex="-1">
 			{{ content | raw }}
 		</main>
 

@@ -5,5 +5,6 @@
   "enable_theme_switch": true,
   "switch_theme_icon": "src/assets/img/icon-sun.svg",
   "default_theme": "light",
-  "use_system_theme": false
+  "use_system_theme": false,
+  "enable_netlify_identity": true
 }

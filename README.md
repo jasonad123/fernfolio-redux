@@ -60,6 +60,34 @@ Now that you are added as a CMS user, add `/admin` to the end of your site url, 
 
 Any changes saved in the CMS will trigger a git commit in your repo. That new commit will then trigger an auto-deployplent on Netlify.
 
+## ☁️ Deploying to Cloudflare Pages
+
+This template also builds cleanly on Cloudflare Pages. A few things to know:
+
+- **Build output directory:** `_site`. A `wrangler.toml` in the repo root already declares
+  this via `pages_build_output_dir`, so Cloudflare's git integration picks it up automatically.
+- **Build command:** `pnpm run build`. Cloudflare Pages' config file does **not** support a
+  build-command setting (it rejects a `[build]` block outright), so this has to be set by hand
+  in the CF Pages dashboard, under your project's Settings → Builds → "Build command".
+- **Node version:** already covered by the repo's `.nvmrc` (`24`), which Cloudflare's build
+  image auto-detects.
+- **Contact form:** the form in `src/_includes/partials/form.liquid` uses [Netlify
+  Forms](https://www.netlify.com/products/forms/) (`data-netlify="true"`), which is a Netlify-only
+  feature - on Cloudflare Pages it silently does nothing (no submissions captured, no error
+  shown). If you need a working form on Cloudflare, swap it for a [Cloudflare Pages
+  Function](https://developers.cloudflare.com/pages/functions/) that calls an email API, or point
+  it at a third-party form backend like [Formspree](https://formspree.io/).
+- **CMS authentication:** by default this template's Decap CMS uses the `git-gateway` backend,
+  which depends on Netlify Identity and only works when the site is hosted on Netlify. For
+  Cloudflare (or any non-Netlify host), switch to the commented-out `github` backend in
+  `src/admin/config.yml` - it authenticates via GitHub OAuth routed through a small proxy Worker
+  you deploy yourself. [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) is a
+  known, ready-made option for that proxy; deploy it as its own Cloudflare Worker and point
+  `base_url`/`auth_endpoint` at it.
+- **Netlify Identity widget:** gated behind the `enable_netlify_identity` setting in
+  `src/_data/global.json` (see 💡 below) - set it to `false` for a Cloudflare (or any
+  non-Netlify) deployment so the widget script and its DNS prefetch aren't loaded on every page.
+
 ## 🏠 Local Development
 If you want to test things locally before deploying, follow the steps below:
 
@@ -103,6 +131,13 @@ To enable switching from light to dark mode, `global.json` has some settings:
 - `enable_theme_switch`: set to `true` if you want your visitors to be able to switch theme
 - `default_theme`: set to `dark` or another value (which always means `light`)
 - `use_system_theme`: set to `true` if you want the system preference to be enforced
+
+## ⚙️ Other global.json settings
+
+- `enable_netlify_identity`: set to `false` if you're not deploying to Netlify (e.g.
+  Cloudflare Pages) - this skips loading the Netlify Identity widget script and its DNS
+  prefetch on every page. Leave `true` for Netlify deployments that use the default
+  `git-gateway` CMS backend.
 
 ## 🔍 SEO
 

@@ -2,6 +2,26 @@ backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
+# --- Alternative: GitHub backend (for non-Netlify hosts, e.g. Cloudflare Pages) ---
+# git-gateway (above) requires Netlify Identity, which only works when this site is
+# hosted on Netlify. If you're deploying elsewhere (e.g. Cloudflare Pages), switch to
+# Decap's "github" backend instead. It authenticates via GitHub OAuth, routed through a
+# small proxy Worker you deploy yourself (browser-only apps like Decap CMS can't do
+# GitHub OAuth directly). A known, ready-made proxy for this is sveltia-cms-auth
+# (https://github.com/sveltia/sveltia-cms-auth) - deploy it as its own Cloudflare
+# Worker, then point base_url/auth_endpoint at it below. See this repo's README,
+# "Deploying to Cloudflare Pages" section, for more detail.
+#
+# To switch: comment out the `backend:` block above, then uncomment this one and fill
+# in your values.
+#
+# backend:
+#   name: github
+#   repo: your-github-username/your-repo-name # REQUIRED: replace with your repo
+#   branch: master
+#   base_url: https://your-oauth-worker.your-subdomain.workers.dev # REQUIRED: your deployed OAuth proxy
+#   auth_endpoint: auth # matches sveltia-cms-auth's default route; adjust if your proxy differs
+
 # Uncomment the line below to edit content locally against your working directory
 # instead of git-gateway. Run `pnpm run cms:local` in a separate terminal first, then
 # visit localhost:8080/admin - see the README's Local Development section for details.
@@ -35,6 +55,7 @@ collections:
           - { label: "Enable Theme switch", name: "enable_theme_switch", widget: "boolean", required: true }
           - { label: "Switch Theme Icon (.svg)", name: "switch_theme_icon", widget: "image", required: true }
           - { label: "Use System Theme", name: "use_system_theme", widget: "boolean", required: true }
+          - { label: "Enable Netlify Identity Widget", name: "enable_netlify_identity", widget: "boolean", required: true }
           - {
               label: "Default Theme",
               name: "default_theme",

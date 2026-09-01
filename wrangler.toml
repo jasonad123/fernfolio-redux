@@ -1,0 +1,14 @@
+# Cloudflare Pages build configuration. Committing this lets Cloudflare Pages'
+# git integration read the build output directory from the repo instead of
+# requiring manual entry in the CF dashboard.
+#
+# `pages_build_output_dir` is the current key for this - see
+# https://developers.cloudflare.com/pages/functions/wrangler-configuration/.
+#
+# Unlike Workers' wrangler.toml, Cloudflare Pages' config file does NOT
+# support a [build] command block - Pages rejects it outright at build time.
+# The build command (`pnpm run build`) still has to be set in the CF Pages
+# dashboard's "Build command" field. See this repo's README, "Deploying to
+# Cloudflare Pages" section.
+name = "fernfolio-redux"
+pages_build_output_dir = "_site"

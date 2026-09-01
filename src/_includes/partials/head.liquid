@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
-  <link rel="dns-prefetch" href="https://identity.netlify.com">
+  {% if global.enable_netlify_identity %}
+    <link rel="dns-prefetch" href="https://identity.netlify.com">
+  {% endif %}
 
   {% comment %} Canonical URL {% endcomment %}
   {% if canonical %}
@@ -25,7 +27,9 @@
 
 
   {% comment %} Third-party scripts {% endcomment %}
-  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {% if global.enable_netlify_identity %}
+    <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {% endif %}
 
   {% comment %} Fonts {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
