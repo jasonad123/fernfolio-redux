@@ -25,7 +25,7 @@ module.exports = function (eleventyConfig) {
 		// formats: ["auto"],
 
 		// optional, output image widths
-		widths: [350, 525, 1050, 1281],
+		widths: [350, 525, 700, 900, 1200],
     // urlPath: './assets/img/',
     // outputDir: './_site/assets/img/',
 
