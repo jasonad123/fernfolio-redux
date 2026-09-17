@@ -1,5 +1,6 @@
 {%- assign show_tags = show_tags | default: true, allow_false: true -%}
 {%- assign limit = limit | default: articles.size -%}
+{%- assign heading_level = heading_level | default: 3 -%}
 <section>
 {% for article in articles %}
   {% if forloop.index0 < limit %}
@@ -8,7 +9,7 @@
       {% if article.url == url %} data-current="current item"{% endif %}
     >
       <a class="article-card__link" href="{{ article.url | url }}">
-        <h5 class="article-card__title">{{ article.data.title }}</h5>
+        <h{{ heading_level }} class="article-card__title">{{ article.data.title }}</h{{ heading_level }}>
         {% if article.data.summary %}
           <p class="article-card__summary">
             {{ article.data.summary }}
