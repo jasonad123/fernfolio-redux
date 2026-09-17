@@ -25,6 +25,9 @@
 
 .project-card__title {
   color: var(--color-heading);
+  // Preserve the previous h4-based size now that the tag is set per call site for
+  // correct heading-order (see projectlist.liquid's heading_level param).
+  font-size: 1.25em;
 }
 
 .project-card__tag {

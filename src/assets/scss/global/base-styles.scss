@@ -131,6 +131,15 @@ a {
   }
 }
 
+// Links inline within flowing text (paragraphs, the footer attribution line) need a
+// non-color signal to stay distinguishable at --color-link's contrast ratio against body
+// text - nav/button/card-title links already have positional/structural affordances and
+// aren't affected here.
+p a,
+small a {
+  text-decoration: underline;
+}
+
 ul {
   padding-left: 1.4em;
   margin-top: 0;
