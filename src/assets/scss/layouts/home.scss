@@ -28,6 +28,10 @@
     // could overflow well past the hero into the Projects section below.
     bottom: -40px;
     width: 35vw;
+    // .hero's image column is the 2fr half of "3fr 2fr" - cap width to roughly
+    // that share of .hero itself so this can't grow wide enough to run under
+    // (and, with longer body copy, visually collide with) the text column.
+    max-width: 38%;
     min-width: 300px;
     border-radius: var(--border-radius);
     background-color: var(--color-accent-bg);
