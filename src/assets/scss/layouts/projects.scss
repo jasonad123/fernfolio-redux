@@ -21,13 +21,19 @@
   border-radius: var(--border-radius);
   background-color: var(--color-surface);
   box-shadow: var(--shadow);
+
+  h1, h2, h3, h4, h5, h6 {
+    // Preserve the previous h4-based size regardless of the heading_level param
+    // (see projectlist.liquid) - this must live on the heading element itself,
+    // not on .project-card__title below, since an em-based size on that nested
+    // <a> would compound on top of the heading's own already-scaled font-size
+    // (e.g. 1.25em inside an h2's 1.75em resolves to ~2.19em, not 1.25em).
+    font-size: 1.25em;
+  }
 }
 
 .project-card__title {
   color: var(--color-heading);
-  // Preserve the previous h4-based size now that the tag is set per call site for
-  // correct heading-order (see projectlist.liquid's heading_level param).
-  font-size: 1.25em;
 }
 
 .project-card__tag {
