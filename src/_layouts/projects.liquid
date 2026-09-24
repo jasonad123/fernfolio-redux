@@ -15,5 +15,5 @@ section: projects
 
   {% comment %} Projects {% endcomment %}
   {% assign allProjects = collections.project | reverse %}
-  {% render "partials/projectlist.liquid", projects: allProjects %}
+  {% render "partials/projectlist.liquid", projects: allProjects, heading_level: 2 %}
 </div>

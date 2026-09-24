@@ -6,11 +6,21 @@ backend:
 # git-gateway (above) requires Netlify Identity, which only works when this site is
 # hosted on Netlify. If you're deploying elsewhere (e.g. Cloudflare Pages), switch to
 # Decap's "github" backend instead. It authenticates via GitHub OAuth, routed through a
-# small proxy Worker you deploy yourself (browser-only apps like Decap CMS can't do
-# GitHub OAuth directly). A known, ready-made proxy for this is sveltia-cms-auth
-# (https://github.com/sveltia/sveltia-cms-auth) - deploy it as its own Cloudflare
-# Worker, then point base_url/auth_endpoint at it below. See this repo's README,
-# "Deploying to Cloudflare Pages" section, for more detail.
+# small proxy (browser-only apps like Decap CMS can't do GitHub OAuth directly). Two
+# ways to get that proxy on Cloudflare Pages:
+#
+#   1. Built-in: this repo already ships one as Cloudflare Pages Functions, in
+#      functions/api/auth.js and functions/api/callback.js - no separate deploy needed,
+#      they ship with your site automatically. You do need to register your own GitHub
+#      OAuth App (github.com/settings/developers - homepage URL and callback URL both
+#      set to https://your-site.pages.dev/api/callback), then set GITHUB_CLIENT_ID and
+#      GITHUB_CLIENT_SECRET as environment variables/secrets on the Cloudflare Pages
+#      project. base_url/auth_endpoint below already point at these Functions.
+#   2. External: deploy a separate proxy like sveltia-cms-auth
+#      (https://github.com/sveltia/sveltia-cms-auth) as its own Cloudflare Worker, then
+#      point base_url/auth_endpoint at it instead.
+#
+# See this repo's README, "Deploying to Cloudflare Pages" section, for more detail.
 #
 # To switch: comment out the `backend:` block above, then uncomment this one and fill
 # in your values.
@@ -19,8 +29,8 @@ backend:
 #   name: github
 #   repo: your-github-username/your-repo-name # REQUIRED: replace with your repo
 #   branch: master
-#   base_url: https://your-oauth-worker.your-subdomain.workers.dev # REQUIRED: your deployed OAuth proxy
-#   auth_endpoint: auth # matches sveltia-cms-auth's default route; adjust if your proxy differs
+#   base_url: https://your-site.pages.dev # REQUIRED: your deployed site (or external proxy's origin)
+#   auth_endpoint: /api/auth # built-in Functions' route; adjust if using an external proxy
 
 # Uncomment the line below to edit content locally against your working directory
 # instead of git-gateway. Run `pnpm run cms:local` in a separate terminal first, then

@@ -80,10 +80,16 @@ This template also builds cleanly on Cloudflare Pages. A few things to know:
 - **CMS authentication:** by default this template's Decap CMS uses the `git-gateway` backend,
   which depends on Netlify Identity and only works when the site is hosted on Netlify. For
   Cloudflare (or any non-Netlify host), switch to the commented-out `github` backend in
-  `src/admin/config.yml` - it authenticates via GitHub OAuth routed through a small proxy Worker
-  you deploy yourself. [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) is a
-  known, ready-made option for that proxy; deploy it as its own Cloudflare Worker and point
-  `base_url`/`auth_endpoint` at it.
+  `src/admin/config.yml` - it authenticates via GitHub OAuth routed through a small proxy
+  (browser-only apps like Decap CMS can't do GitHub OAuth directly). This repo ships that proxy
+  for you as Cloudflare Pages Functions (`functions/api/auth.js` and `functions/api/callback.js`)
+  - no separate deploy needed. You do need to register your own [GitHub OAuth
+  App](https://github.com/settings/developers) (homepage and callback URL both set to
+  `https://your-site.pages.dev/api/callback`) and set `GITHUB_CLIENT_ID`/`GITHUB_CLIENT_SECRET`
+  as environment variables on the Cloudflare Pages project. Prefer an external proxy instead?
+  [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) is a known, ready-made option -
+  deploy it as its own Cloudflare Worker and point `base_url`/`auth_endpoint` at it instead. See
+  `src/admin/config.yml`'s comments for the exact config for either option.
 - **Netlify Identity widget:** gated behind the `enable_netlify_identity` setting in
   `src/_data/global.json` (see 💡 below) - set it to `false` for a Cloudflare (or any
   non-Netlify) deployment so the widget script and its DNS prefetch aren't loaded on every page.

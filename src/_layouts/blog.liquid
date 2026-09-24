@@ -10,7 +10,7 @@ permalink: /blog/index.html
 
   {% comment %} Article List {% endcomment %}
   {% assign blogPosts = pagination.items | reverse %}
-  {% render "partials/articlelist.liquid", articles: blogPosts, show_tags: true %}
+  {% render "partials/articlelist.liquid", articles: blogPosts, show_tags: true, heading_level: 2 %}
 
   {% comment %} Pagination {% endcomment %}
   {% include 'partials/pagination.liquid' %}

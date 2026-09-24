@@ -41,6 +41,9 @@
 
 .article-card__title {
   margin: 5px 0;
+  // Preserve the previous h5-based size now that the tag is set per call site for
+  // correct heading-order (see articlelist.liquid's heading_level param).
+  font-size: 1em;
 
   // h1-h6 set an explicit color (base-styles.scss), which normally beats inheritance -
   // but this title needs to visually follow .article-card__link's hover color the way
@@ -94,6 +97,7 @@
   background-color: var(--color-surface-muted);
   border-radius: var(--border-radius-sm);
   color: var(--color-link);
+  text-decoration: none;
   white-space: nowrap;
   font-size: 13px;
   font-weight: 500;

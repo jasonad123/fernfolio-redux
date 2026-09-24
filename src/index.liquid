@@ -3,10 +3,9 @@ layout: base.liquid
 section: home
 ---
 <div class="home-page">
-	<div class="home-page__bg-square"></div>
-
   {% comment %} Hero {% endcomment %}
   <div class="hero">
+    <div class="home-page__bg-square"></div>
     <div class="hero__col">
       <h1 class="hero__title gradient-text">{{ home.title }}</h1>
       {% if home.body %}
@@ -14,7 +13,7 @@ section: home
       {% endif %}
     </div>
     <div class="hero__col">
-    <img src="{{ home.image }}" alt="{{ home.image_alt }}" class="hero__image shadow" loading="eager" sizes="(min-width: 1024px) 50vw, 100vw">
+    <img src="{{ home.image }}" alt="{{ home.image_alt }}" class="hero__image shadow" loading="eager" fetchpriority="high" sizes="300px">
     </div>
   </div>
 
@@ -24,7 +23,7 @@ section: home
     <a class="btn btn--outline btn--sm" href="/projects">View All</a>
   </div>
   {% assign homeProjects = collections.project | reverse %}
-  {% render "partials/projectlist.liquid", projects: homeProjects %}
+  {% render "partials/projectlist.liquid", projects: homeProjects, heading_level: 3 %}
 
   {% comment %} Articles {% endcomment %}
   <div class="list-header">
@@ -32,5 +31,5 @@ section: home
     <a class="btn btn--outline btn--sm" href="/blog">View All</a>
   </div>
   {% assign homeArticles = collections.post | reverse %}
-  {% render "partials/articlelist.liquid", articles: homeArticles, show_tags: false, limit: 3 %}
+  {% render "partials/articlelist.liquid", articles: homeArticles, show_tags: false, limit: 3, heading_level: 3 %}
 </div>
