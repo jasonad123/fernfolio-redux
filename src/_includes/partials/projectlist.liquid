@@ -1,8 +1,9 @@
+{%- assign heading_level = heading_level | default: 3 -%}
 <section>
   <div class="project-grid">
     {% for project in projects %}
       <div class="project-card" {% if project.url == url %} data-current="current item"{% endif %}>
-        <h4>
+        <h{{ heading_level }}>
           <a class="project-card__title" href="{{ project.url | url }}">
             {% if project.data.emoji %}
               <span class="project-card__emoji">{{ project.data.emoji }}</span>
@@ -13,7 +14,7 @@
               Untitled
             {% endif %}
           </a>
-        </h4>
+        </h{{ heading_level }}>
         {% if project.data.summary %}
           <p>
             {{ project.data.summary }}

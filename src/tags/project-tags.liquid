@@ -12,13 +12,13 @@ renderData:
 <div class="page-container">
   {% comment %} Header {% endcomment %}
   <div class="tag-list tag-list--no-wrap">
-    <h4 class="tag-list__title">Projects Tagged: "{{ tag | capitalize }}"</h4>
+    <h1 class="tag-list__title">Projects Tagged: "{{ tag | capitalize }}"</h1>
     <a class="btn btn--sm btn--danger" href="/projects">Remove Tag</a>
   </div>
 
   {% comment %} Projects {% endcomment %}
   {% assign taggedProjects = collections[tag] | reverse %}
-  {% render "partials/projectlist.liquid", projects: taggedProjects %}
+  {% render "partials/projectlist.liquid", projects: taggedProjects, heading_level: 2 %}
 
   {% comment %} Footer {% endcomment %}
   <nav>
