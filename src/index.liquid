@@ -5,7 +5,6 @@ section: home
 <div class="home-page">
   {% comment %} Hero {% endcomment %}
   <div class="hero">
-    <div class="home-page__bg-square"></div>
     <div class="hero__col">
       <h1 class="hero__title gradient-text">{{ home.title }}</h1>
       {% if home.body %}
@@ -13,7 +12,10 @@ section: home
       {% endif %}
     </div>
     <div class="hero__col">
-    <img src="{{ home.image }}" alt="{{ home.image_alt }}" class="hero__image shadow" loading="eager" fetchpriority="high" sizes="300px">
+      <div class="hero__image-wrap">
+        <div class="home-page__bg-square"></div>
+        <img src="{{ home.image }}" alt="{{ home.image_alt }}" class="hero__image shadow" loading="eager" fetchpriority="high" sizes="300px">
+      </div>
     </div>
   </div>
 
