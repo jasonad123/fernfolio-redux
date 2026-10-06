@@ -16,26 +16,22 @@
   @media (min-width: vars.$breakpoint-lg) {
     display: block;
     position: absolute;
-    left: auto;
-    top: 0;
-    right: 0;
-    // A decorative accent block behind the hero image. Sized off the viewport
-    // (35vw) rather than .hero's own (much narrower) box so it keeps its full
-    // width, but positioned via top+bottom (not a % height) so it scales with
-    // .hero's actual rendered height instead of bleeding into whatever content
-    // follows - it previously used height:100%/max-height:60%, which (since
-    // .hero wasn't a positioned ancestor) resolved against the viewport and
-    // could overflow well past the hero into the Projects section below.
-    // .hero always carries a fixed 50px bottom margin before the next section
-    // (see .hero's margin rule below), so -44px here reaches nearly to that
-    // section regardless of hero's own height, with a small safety buffer.
-    bottom: -44px;
-    width: 35vw;
-    // .hero's image column is the 2fr half of "3fr 2fr" - cap width to roughly
-    // that share of .hero itself so this can't grow wide enough to run under
-    // (and, with longer body copy, visually collide with) the text column.
-    max-width: 38%;
-    min-width: 300px;
+    // Offset from the hero image itself (see .hero__image-wrap) rather than
+    // from .hero as a whole, so it tracks the image's actual rendered box -
+    // peeking out above/right/below it, like the template's own preview
+    // screenshot (fernfolio-preview.jpeg) - regardless of how tall the hero's
+    // text column ends up being, instead of a viewport-relative percentage
+    // height that could bleed well past the hero into the Projects section.
+    top: -12%;
+    left: 20%;
+    right: -60%;
+    // Fixed (not %-of-image-height) because .hero has a fixed ~70px margin
+    // before the Projects section regardless of how tall the hero's text
+    // column makes the row - a percentage here is what let this bleed past
+    // Projects in the first place. Sized to clear that gap with a small
+    // buffer even when the image sits flush with the row's own bottom edge
+    // (the worst case, i.e. no extra space from vertical centering).
+    bottom: -50px;
     border-radius: var(--border-radius);
     background-color: var(--color-accent-bg);
     z-index: -1;
@@ -43,7 +39,6 @@
 }
 
 .hero {
-  position: relative;
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-rows: auto auto;
@@ -62,6 +57,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.hero__image-wrap {
+  // Shrink-to-fit around .hero__image so the bg-square's percentage offsets
+  // below resolve against the image's own box, not the (possibly taller,
+  // vertically-centered-within) column around it.
+  display: inline-block;
+  position: relative;
 }
 
 .hero__image {
